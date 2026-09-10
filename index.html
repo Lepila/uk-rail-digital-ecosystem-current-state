@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>UK Rail Digital Ecosystem: Current State</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <div>
+        <h1>UK rail digital ecosystem · Current state</h1>
+      </div>
+      <div class="source-pill" id="source-pill">Loading workbook data</div>
+    </header>
+
+    <nav class="nav" aria-label="Primary views">
+      <button class="nav-button active" data-view="overview">Overview</button>
+      <button class="nav-button" data-view="landscape">Digital landscape</button>
+      <button class="nav-button" data-view="journey">Passenger journey</button>
+      <button class="nav-button" data-view="capabilities">Capabilities</button>
+      <button class="nav-button" data-view="matrix">National Rail vs TOCs</button>
+      <button class="nav-button" data-view="fragmentation">Fragmented journeys</button>
+      <button class="nav-button" data-view="organisations">Organisation explorer</button>
+      <button class="nav-button" data-view="evidence">Evidence gaps</button>
+    </nav>
+
+    <section class="filters" aria-label="Global filters">
+      <label>
+        <span>Search</span>
+        <input id="filter-search" type="search" placeholder="Organisation, service, capability, URL" />
+      </label>
+      <label>
+        <span>Organisation type</span>
+        <select id="filter-category"></select>
+      </label>
+      <label>
+        <span>Journey stage</span>
+        <select id="filter-stage"></select>
+      </label>
+      <label>
+        <span>Capability class</span>
+        <select id="filter-classification"></select>
+      </label>
+      <label>
+        <span>Confidence</span>
+        <select id="filter-confidence"></select>
+      </label>
+      <label class="toggle">
+        <input id="filter-validation" type="checkbox" />
+        <span>Needs validation</span>
+      </label>
+    </section>
+
+    <div class="layout">
+      <main id="app" class="view-shell" aria-live="polite"></main>
+      <aside id="evidence-panel" class="evidence-panel">
+        <div class="panel-empty">
+          <p class="eyebrow">Source / evidence</p>
+          <h2>Select an item</h2>
+          <p>Clicked items show the workbook fields, source URLs, confidence and notes here.</p>
+        </div>
+      </aside>
+    </div>
+
+    <script src="vendor/html2canvas.min.js"></script>
+    <script src="vendor/jspdf.umd.min.js"></script>
+    <script src="data/rail-ecosystem-data.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
